@@ -1,0 +1,68 @@
+library(dplyr)
+
+roulette <- function(spincount) 
+{
+  spincount <- data.frame(
+    spin = seq(1, spins),
+    outcome = sample(0:36, spins, replace = TRUE))
+  #in order to run a 00, change 36 to 37 and 
+  #remove the # before 
+  spincount <-  mutate(spincount,result1col = case_when(outcome >= 1 & outcome <= 12~ "1",TRUE ~ "0"))
+  spincount <-  mutate(spincount,result2col = case_when(outcome >= 13 & outcome <= 24 ~ "1",TRUE ~ "0"))
+  spincount <-  mutate(spincount,result3col = case_when(outcome >= 25 & outcome <= 36 ~ "1",TRUE ~ "0" ))
+  spincount <- mutate(spincount,even = case_when(outcome %% 2 == 0 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,odd = case_when(outcome %% 2 != 0 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount, black = case_when(outcome %in% c("2","4", "6", "8", "10", "11", "13", "15", "17", "20", "22", "24", "26", "28", "29", "31", "33", "35") ~ "1",TRUE~ "0"))
+  spincount <- mutate(spincount, red = case_when(outcome %in% c("1","3", "5", "7", "9", "12", "14", "16", "18", "19", "21", "23", "25", "27", "30", "32", "34", "36") ~ "1",TRUE~ "0"))
+  spincount <-  mutate(spincount, result1_18 = case_when(outcome >= 1 & outcome <= 18~ "1",TRUE ~ "0" ))
+  spincount <-  mutate(spincount, result19_36 = case_when(outcome >= 19 & outcome <= 36~ "1",TRUE ~ "0" ))
+  spincount <- mutate(spincount, result1row = case_when(outcome %in% c("1","4", "7", "10", "13", "16", "19", "22", "25", "28", "31", "34") ~ "1",TRUE~ "0"))
+  spincount <- mutate(spincount, result2row = case_when(outcome %in% c("2","5", "8", "11", "14", "17", "20", "23", "26", "29", "32", "35") ~ "1",TRUE~ "0"))
+  spincount <- mutate(spincount, result3row = case_when(outcome %in% c("3","6", "9", "12", "15", "18", "21", "24", "27", "30", "33", "36") ~ "1",TRUE~ "0"))
+  spincount <- mutate(spincount,result0 = case_when(outcome == 0 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result1 = case_when(outcome == 1 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result2 = case_when(outcome == 2 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result3 = case_when(outcome == 3 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result4 = case_when(outcome == 4 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result5 = case_when(outcome == 5 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result6 = case_when(outcome == 6 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result7 = case_when(outcome == 7 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result8 = case_when(outcome == 8 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result9 = case_when(outcome == 9 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result10 = case_when(outcome == 10 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result11 = case_when(outcome == 11 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result12 = case_when(outcome == 12 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result13 = case_when(outcome == 13 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result14 = case_when(outcome == 14 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result15 = case_when(outcome == 15 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result16 = case_when(outcome == 16 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result17 = case_when(outcome == 17 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result18 = case_when(outcome == 18 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result19 = case_when(outcome == 19 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result20 = case_when(outcome == 20 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result21 = case_when(outcome == 21 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result22 = case_when(outcome == 22 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result23 = case_when(outcome == 23 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result24 = case_when(outcome == 24 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result25 = case_when(outcome == 25 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result26 = case_when(outcome == 26 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result27 = case_when(outcome == 27 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result28 = case_when(outcome == 28 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result29 = case_when(outcome == 29 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result30 = case_when(outcome == 30 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result31 = case_when(outcome == 31 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result32 = case_when(outcome == 32 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result33 = case_when(outcome == 33 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result34 = case_when(outcome == 34 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result35 = case_when(outcome == 35 ~ "1", TRUE~ "0"))
+  spincount <- mutate(spincount,result36 = case_when(outcome == 36 ~ "1", TRUE~ "0"))
+  return(spincount)
+}
+
+spins <- 1
+roulette <- roulette(spincount)
+
+percentages <- colMeans(roulette[, 3:51] == "1")
+
+print(percentages)
+
